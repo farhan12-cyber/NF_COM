@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script language="javascript">
+      //belajar variabel dan tipe data
+      var pegawai = "Ridwan";
+      var jabatan = "Manager";
+      var status = "Menikah";
+      // TV => 3 jt, Kulkas => 4 jt, AC => 5 jt
+      //struktur kendali
+      if (jabatan == "Manager") {
+        gapok = 15000000;
+      } else if (jabatan == "Asissten Manager") {
+        gapok = 1000000;
+      } else if (jabatan == "Staff") {
+        gapok = 5000000;
+      } else {
+        gapok = 0;
+      }
+      let tunjangan_jabatan = 0.15 * gapok;
+      let bpjs = 0.1 * gapok;
+      let tunjangan_keluarga = status == "Menikah" ? 0.2 * gapok : 0;
+      let total = tunjangan_jabatan + bpjs + tunjangan_keluarga + gapok;
+      //ternary
+      /*
+        if(produk == 'AC') diskon = 0.1 * bruto;
+        else diskon = 0;
+        */
+      document.write(
+        "Data Pegawai" +
+          "<br/> Nama Pegawai: " +
+          pegawai +
+          "<br/> jabatan : " +
+          jabatan +
+          "<br/>Status : " +
+          status +
+          "<br/>" + "<br/>" + "<br/>"
+      );
+
+      document.write(`<table border="1" cellspacing="0" cellpadding="10" style="border-color: #D36B00 1px solid;">
+      <thead>
+        <tr bgcolor="#D36B00" style="color: white;">
+          <th >Data</th>
+          <th>Keterangan</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>Gaji Pokok</td>
+                <td>${gapok.toLocaleString()}</td>
+            </tr>
+            <tr>
+                <td>Tunjangan Jabatan</td>
+                <td>${tunjangan_jabatan.toLocaleString()}</td>
+            </tr>
+            <tr>
+                <td>BPJS</td>
+                <td>${bpjs.toLocaleString()}</td>
+            </tr>
+            <tr>
+                <td>Tunjangan Keluarga</td>
+                <td>${tunjangan_keluarga.toLocaleString()}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr><th>Total Gaji</th><th>${total.toLocaleString()}</th></tr>
+        </tfoot>
+      </thead>
+    </table>`);
+    </script>
+  </body>
+</html>
