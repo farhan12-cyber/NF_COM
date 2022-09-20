@@ -1,0 +1,61 @@
+<table align="center" border="1" cellpadding="10">
+    <thead>
+        <tr bgcolor="green">
+            <th>Nomor</th>
+            <th>LOKASI</th>
+            <th>SKALA</th>
+            <th>DAMPAK</th>
+        </tr>
+    </thead>
+    <tbody>
+        <script>
+            let no = 1;
+            warna = (no % 2 == 0) ? "grey":"orange";
+            class Gempa {
+                constructor(lokasi, skala) {
+                    this.lokasi = lokasi;
+                    this.skala = skala;
+                }
+
+                getDampak() {
+                    if (this.skala > 6) this.dampak = 'bangunan roboh dan berpotensi tsunami';
+                    else if (this.skala > 4 && this.skala <= 6) this.dampak = 'bangunan roboh';
+                    else if (this.skala > 2 && this.skala <= 4) this.dampak = 'bangunan retak-retak';
+                    else if (this.skala <= 2) this.dampak = 'tidak terasa';
+                    else this.dampak = '';
+
+                    return this.dampak;
+                }
+                infoGempa() {
+                    document.write(`<tr bgcolor="${warna}">
+                    <td>${no++}</td>
+                        <td>${this.lokasi}</td>
+                        <td>${this.skala}</td>
+                        <td>${this.getDampak()}</td>
+                    </tr>`);
+                }
+
+            }
+
+            //-------membuat object-----
+
+            g1 = new Gempa('Depok', 3);
+            g2 = new Gempa('Jakarta', 2);
+            g3 = new Gempa('Bekasi', 6);
+            g4 = new Gempa('Bogor', 4);
+            g5 = new Gempa('Padang', 5);
+            g6 = new Gempa('Lampung', 1);
+            g7 = new Gempa('Medan', 9);
+            g8 = new Gempa('Palembang', 4);
+            g9 = new Gempa('Aceh', 8);
+            g10 = new Gempa('Bandung', 4);
+
+
+            g1.infoGempa(); g2.infoGempa(); g3.infoGempa();
+            g4.infoGempa(); g5.infoGempa(); g6.infoGempa();
+            g7.infoGempa(); g8.infoGempa(); g9.infoGempa();g10.infoGempa()
+
+
+        </script>
+    </tbody>
+</table>
